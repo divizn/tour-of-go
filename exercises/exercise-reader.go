@@ -6,10 +6,7 @@ type MyReader struct{}
 
 // TODO: Add a Read([]byte) (int, error) method to MyReader.
 func (r MyReader) Read(b []byte) (n int, err error) {
-	for i := range b {
-		b[i] = 'A'
-	}
-	return 0, nil
+	return copy(b, "A"), nil
 }
 
 func main() {
